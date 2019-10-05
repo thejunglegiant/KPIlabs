@@ -1,6 +1,10 @@
 #include <iostream>
 #include <math.h>
 
+/*
+This program calculate cube volume and side surface area from the edge length.
+*/
+
 using namespace std;
 
 int main() {
