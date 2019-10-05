@@ -1,4 +1,5 @@
 #include <iostream>
+#include <math.h>
 
 using namespace std;
 
@@ -21,6 +22,8 @@ int main() {
     cout << "Enter y value: ";
     cin >> y;
 
+    x = abs(x);
+    y = abs(y);
     if(x >= r1 && x <= r2 && y >= r1 && y <= r2) {
       cout << "This dot belongs to the figure" << endl;
     } else {
