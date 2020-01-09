@@ -1,4 +1,5 @@
 #include <iostream>
+#include <string>
 
 using namespace std;
 
@@ -7,7 +8,9 @@ All the words which are placed on even positions need to be written in reverse o
 */
 
 int main() {
-    char *str = "Odd even1 odd even2 odd even3 odd even4 odd even5 odd even6";
+    string str;
+    cout << "Enter a string which you want to edit:" << endl;
+    getline(cin, str);
     int i = 0;
     int even = 1;
 
@@ -22,10 +25,7 @@ int main() {
                 int temp = 0;
 
                 // Gets it's length
-                while (str[j] != ' ') {
-                    if (j == strlen(str)) {
-                        break;
-                    }
+                while (str[j] != ' ' && str[j] != '\0') {
                     j++;
                 }
                 temp = j - 1;
