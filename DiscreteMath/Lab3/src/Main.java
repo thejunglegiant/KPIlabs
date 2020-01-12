@@ -23,14 +23,14 @@ public class Main {
         System.out.println();
         System.out.println("Poi|BFS|Line content");
         System.out.println("---------------------");
-        roundMethod(adjacencyMatrix, startPoint);
+        breadthFirstSearch(adjacencyMatrix, startPoint);
         System.out.println();
         System.out.println("Poi|DFS|Stack content");
         System.out.println("---------------------");
-        inDepthMethod(adjacencyMatrix, startPoint);
+        depthFirstSearch(adjacencyMatrix, startPoint);
     }
 
-    private static void inDepthMethod(int[][] adjacencyMatrix, int actualPoint) {
+    private static void depthFirstSearch(int[][] adjacencyMatrix, int actualPoint) {
         int counter = 1;
         ArrayList<Integer> temp = new ArrayList<>();
         ArrayList<Integer> donePoints = new ArrayList<>();
@@ -58,7 +58,7 @@ public class Main {
         }
     }
 
-    private static void roundMethod(int[][] adjacencyMatrix, int actualPoint) {
+    private static void breadthFirstSearch(int[][] adjacencyMatrix, int actualPoint) {
         int counter = 1;
         ArrayList<Integer> temp = new ArrayList<>();
         ArrayList<Integer> donePoints = new ArrayList<>();
