@@ -128,3 +128,12 @@ hs_err_pid*
 ### VisualStudioCode Patch ###
 # Ignore all local history of files
 .history
+
+### My stuff
+SecondSemester/*/C#/bin
+SecondSemester/*/C#/obj
+SecondSemester/*/C#/*.csproj
+
+DiscreteMath/*/.idea
+DiscreteMath/*/out
+DiscreteMath/*/*.iml
