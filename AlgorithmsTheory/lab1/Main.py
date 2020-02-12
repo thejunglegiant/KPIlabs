@@ -1,18 +1,17 @@
-import numpy as np
+import random
 
-m = int(input("Input an amount of rows: "))
-n = int(input("Input an amount of columns: "))
+n = 10
+evenArray = []
+array = random.sample(range(1, 11), n)
+print(array)
 
-A = np.random.randint(10, size=(m,n))
-print(A)
-print()
+for j in range(n):
+    for k in range(0, n - j - 1):
+        if array[k] < array[k + 1]:
+            array[k], array[k + 1] = array[k + 1], array[k]
 
-for j in range(m):
-    for k in range(0, m-j-1):
-        if A[k][0] < A[k+1][0]:
-            for i in range(0, n):
-                temp = A[k][i]
-                A[k][i] = A[k+1][i]
-                A[k+1][i] = temp
+for i in range(n):
+    if array[i] % 2 == 0:
+        evenArray.append(array[i])
 
-print(A)
+print(evenArray)
