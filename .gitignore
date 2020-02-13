@@ -130,9 +130,12 @@ hs_err_pid*
 .history
 
 ### My stuff
+FirstSemester/*/*.out
+
 SecondSemester/*/C#/bin
 SecondSemester/*/C#/obj
 SecondSemester/*/C#/*.csproj
+SecondSemester/*/C++/*.out
 
 DiscreteMath/*/.idea
 DiscreteMath/*/out
