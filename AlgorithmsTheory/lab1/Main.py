@@ -1,17 +1,8 @@
-import random
+import Tests as ts
 
-n = 10
-evenArray = []
-array = random.sample(range(1, 11), n)
-print(array)
+# array length
+length = 10
 
-for j in range(n):
-    for k in range(0, n - j - 1):
-        if array[k] < array[k + 1]:
-            array[k], array[k + 1] = array[k + 1], array[k]
-
-for i in range(n):
-    if array[i] % 2 == 0:
-        evenArray.append(array[i])
-
-print(evenArray)
+ts.bubble_test(length)
+ts.improved_bubble_test(length)
+ts.insertion_test(length)

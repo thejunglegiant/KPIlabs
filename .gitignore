@@ -140,3 +140,5 @@ SecondSemester/*/C++/*.out
 DiscreteMath/*/.idea
 DiscreteMath/*/out
 DiscreteMath/*/*.iml
+
+AlgorithmsTheory/*/__pycache__
