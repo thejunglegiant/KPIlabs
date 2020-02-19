@@ -142,3 +142,4 @@ DiscreteMath/*/out
 DiscreteMath/*/*.iml
 
 AlgorithmsTheory/*/__pycache__
+AlgorithmsTheory/*/.idea
