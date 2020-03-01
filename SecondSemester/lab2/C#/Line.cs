@@ -8,9 +8,7 @@ namespace lab2 {
         }
 
         public void outputString() {
-            for (int i = 0;i < line.Length;i++) {
-                if (line[i] == default(char))
-                    break;
+            for (int i = 0;i < this.getLength();i++) {
                 Console.Write(line[i]);
             }
         }
@@ -26,9 +24,8 @@ namespace lab2 {
 
         public int findElement(char obj) {
             int counter = 0;
-            for (int i = 0;i < line.Length;i++) {
-                if (line[i] == default(char))
-                    break;
+
+            for (int i = 0;i < this.getLength();i++) {
                 if (line[i] == obj)
                     counter++;
             }

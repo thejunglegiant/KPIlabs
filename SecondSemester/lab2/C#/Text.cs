@@ -3,43 +3,40 @@ using static lab2.Line;
 
 namespace lab2 {
     class Text {
-        private int n;
         private Line[] text;
 
-        public Text(int n, Line[] text) {
-            this.n = n;
+        public Text(Line[] text) {
             this.text = text;
         }
 
         public void outputText() {
-            for (int i = 0;i < n; i++) {
+            for (int i = 0;i < text.Length; i++) {
                 text[i].outputString();
                 Console.WriteLine();
             }
         }
 
         public void addLine(Line line) {
-            text[n++] = line;
+            Array.Resize<Line>(ref text, text.Length + 1);
+            text[text.Length - 1] = line;
         }
 
         public void removeLine(int pos) {
-            for (int i = pos-1; i < n; i++) {
+            for (int i = pos-1; i < text.Length - 1; i++) {
                 text[i] = text[i + 1];
             }
-            n--;
+
+            Array.Resize(ref text, text.Length - 1);
         }
 
         public void clearText() {
-            for (int i = 0; i < n; i++) {
-                text[i] = new Line();
-            }
-            n = 0;
+            Array.Resize(ref text, 0);
         }
 
         public Line findBiggest() {
             int max = 0;
             int maxLen = text[0].getLength();
-            for (int i = 0; i < n; i++) {
+            for (int i = 0; i < text.Length; i++) {
                 if (maxLen < text[i].getLength()) {
                     maxLen = text[i].getLength();
                     max = i;
@@ -51,9 +48,9 @@ namespace lab2 {
 
         public float getPercentage(char obj) {
             float times = 0, total = 0;
-            for (int i = 0; i < n; i++) {
-                times += text[i].findElement(obj);
-                total += text[i].getLength();
+            for (int i = 0; i < text.Length; i++) {
+                times += (float)text[i].findElement(obj);
+                total += (float)text[i].getLength();
             }
 
             return (times / total);
@@ -61,7 +58,7 @@ namespace lab2 {
 
         public int getLength() {
             int total = 0;
-            for (int i = 0; i < n; i++) {
+            for (int i = 0; i < text.Length; i++) {
                 total += text[i].getLength();
             }
 
