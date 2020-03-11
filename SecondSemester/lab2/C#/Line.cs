@@ -1,9 +1,9 @@
 using System;
 
 namespace lab2 {
-    class Line {
+    public class Line {
         private char[] line;
-        public Line(char[] line = null) {
+        public Line(char[] line) {
             this.line = line;
         }
 
@@ -31,6 +31,17 @@ namespace lab2 {
             }
 
             return counter;
+        }
+
+        public bool compare(Line obj) {
+            bool equal = true;
+            for (int i = 0;i < this.getLength(); i++) {
+                Console.WriteLine(this.line[i] + " = " + obj.line[i]);
+                if (this.line[i] != obj.line[i])
+                    equal = false;
+            }
+
+            return equal;
         }
     }
 }

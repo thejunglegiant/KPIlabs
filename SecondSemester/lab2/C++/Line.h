@@ -4,7 +4,7 @@
 class Line {
     private:
         char* line;
-    public: 
+    public:
         Line(char* Line);
         int getLength();
         int findElement(char obj);

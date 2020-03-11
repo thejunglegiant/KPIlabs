@@ -1,7 +1,4 @@
 #include <iostream>
-#include <vector>
-#include <cstring>
-#include <stdio.h>
 #include "Line.h"
 #include "Text.h"
 
@@ -10,7 +7,7 @@ using namespace std;
 int main(int argc, const char * argv[]) {
     // Creating a Text instance
     Text text = Text();
-    
+
     string line = "";
     int amountOfRaws = 0;
     cout << "Enter amount of raws: ";

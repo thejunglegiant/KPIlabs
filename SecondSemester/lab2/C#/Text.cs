@@ -2,11 +2,29 @@ using System;
 using static lab2.Line;
 
 namespace lab2 {
-    class Text {
+    public class Text {
         private Line[] text;
 
         public Text(Line[] text) {
             this.text = text;
+        }
+
+        public Line[] getText => text;
+
+        public void replaceLines(Line str1, Line str2) {
+            text[findLineIndex(str1)] = str2;
+        }
+
+        public int findLineIndex(Line str) {
+            int index = -1;
+            for (int i = 0;i < text.Length; i++) {
+                if (text[i].compare(str)) {
+                    index = i;
+                    break;
+                }
+            }
+
+            return index;
         }
 
         public void outputText() {
