@@ -15,6 +15,7 @@ namespace lab3 {
         public double this[int n] {
             get {
                 double sum = 0;
+
                 for(int i = 0; i < 4; i++) {
                     sum += Math.Pow((double)(this.array[n,i]), (double)2);
                 }
@@ -37,7 +38,7 @@ namespace lab3 {
             }
         }
 
-        public void printArray() {
+        public void print() {
             for(int i = 0; i < this.n; i++) {
                 for(int j = 0; j < this.m; j++) {
                     Console.Write(this.array[i,j] + "\t");
