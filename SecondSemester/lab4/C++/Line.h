@@ -10,9 +10,8 @@ class Line {
         void init(char *);
     public:
         Line();
-        explicit Line(char *);
+        Line(char *);
         Line(const Line &);
-        int getLength();
         char* getLine();
 
         Line operator=(const Line &);

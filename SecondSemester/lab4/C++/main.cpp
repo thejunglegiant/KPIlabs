@@ -9,7 +9,6 @@ int main() {
     Line C3 = Line(C2);
 
     C1 = C2 - '5' + C3;
-    
     cout << C1.getLine() << endl;
 
     return 0;

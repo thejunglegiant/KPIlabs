@@ -21,10 +21,6 @@ Line::Line(const Line &newLine) {
     init(newLine._line);
 }
 
-int Line::getLength() {
-    return this->size;
-}
-
 char* Line::getLine() {
     return this->_line;
 }
