@@ -38,7 +38,7 @@ def merge_sort(array):
         return array
 
 
-def merge(array):
+def sort(array):
     global counter
     counter = 0
     arr = merge_sort(array)

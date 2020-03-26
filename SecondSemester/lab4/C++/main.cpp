@@ -4,7 +4,7 @@
 using namespace std;
 
 int main() {
-    Line C1 = Line();
+    Line C1 = Line(0);
     Line C2 = Line("15");
     Line C3 = Line(C2);
 

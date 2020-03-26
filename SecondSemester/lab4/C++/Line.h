@@ -9,7 +9,7 @@ class Line {
         size_t size;
         void init(char *);
     public:
-        Line();
+        Line(int);
         Line(char *);
         Line(const Line &);
         char* getLine();

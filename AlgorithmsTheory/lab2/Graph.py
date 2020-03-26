@@ -2,28 +2,33 @@ import Generate as gen
 import matplotlib.pyplot as plt
 import InsertionSort as insert
 import MergeSort as merge
+import Functions as fun
 
-test_range = [5, 10, 15, 20, 25, 30, 35, 40, 45, 50, 55]
-# test_range = [10, 20, 30, 40, 50, 60, 70, 80, 90, 100]
-# test_range = [100, 200, 300, 400, 500, 600, 700, 800, 900, 1000]
+test_range = [x for x in range(0, 50)]
 
 
 def create_graph(sort_type):
     if sort_type == "Best":
-        arrays, counters = data_best(merge.merge)
+        arrays, counters = data_best(merge.sort)
         plt.plot(arrays, counters, label="Merge sort")
-        arrays, counters = data_best(insert.insertion_sort)
+        arrays, counters = data_best(insert.sort)
         plt.plot(arrays, counters, label="Insertion sort")
+        arrays, counters = data_best(fun.hybrid_sort)
+        plt.plot(arrays, counters, label="Hybrid sort")
     elif sort_type == "Random":
-        arrays, counters = data_random(merge.merge)
+        arrays, counters = data_random(merge.sort)
         plt.plot(arrays, counters, label="Merge sort")
-        arrays, counters = data_random(insert.insertion_sort)
+        arrays, counters = data_random(insert.sort)
         plt.plot(arrays, counters, label="Insertion sort")
+        arrays, counters = data_random(fun.hybrid_sort)
+        plt.plot(arrays, counters, label="Hybrid sort")
     else:
-        arrays, counters = data_worst(merge.merge)
+        arrays, counters = data_worst(merge.sort)
         plt.plot(arrays, counters, label="Merge sort")
-        arrays, counters = data_worst(insert.insertion_sort)
+        arrays, counters = data_worst(insert.sort)
         plt.plot(arrays, counters, label="Insertion sort")
+        arrays, counters = data_worst(fun.hybrid_sort)
+        plt.plot(arrays, counters, label="Hybrid sort")
 
     plt.xlabel('number of elements')
     plt.ylabel('number of swaps')

@@ -1,5 +1,3 @@
-import Generate as gen
-
 import Tests as ts
 import Graph as gr
 import Functions as fun
@@ -7,7 +5,7 @@ import Functions as fun
 # array length
 length = 10
 
-ts.bubbletest(length)
+ts.bubble_test(length)
 ts.improved_bubble_test(length)
 ts.insertion_test(length)
 

@@ -4,8 +4,8 @@ namespace lab4 {
     public class Line {
         private char[] _line;
 
-        public Line() {
-            this._line = new char[0];
+        public Line(int length) {
+            this._line = new char[length];
         }
 
         public Line(string newLine) {

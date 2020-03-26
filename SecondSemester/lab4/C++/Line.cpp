@@ -9,8 +9,8 @@ void Line::init(char *arr) {
         this->_line[i] = arr[i];
 }
 
-Line::Line() {
-    this->_line = new char[0];
+Line::Line(int length) {
+    this->_line = new char[length];
 }
 
 Line::Line(char *arr) {

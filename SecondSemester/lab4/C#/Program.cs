@@ -3,7 +3,7 @@
 namespace lab4 {
     public class Program {
         static void Main(string[] args) {
-            Line C1 = new Line();
+            Line C1 = new Line(0);
             Line C2 = new Line("15");
             Line C3 = new Line(C2);
 
