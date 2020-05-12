@@ -100,9 +100,9 @@ class OpenAddressHashTable(object):
         return self.array[index]
 
 
-file_name = input("Enter input file name: ")
+# file_name = input("Enter input file name: ")
 k = int(input("Choose a type of a hash-table [1-5]: "))
-with open(file_name) as f:
+with open("input_1000.txt") as f:
     i = 0
     N, M = [int(x) for x in next(f).split()]
     A = []

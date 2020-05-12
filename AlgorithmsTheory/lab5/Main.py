@@ -44,8 +44,8 @@ def build_heap(arr, heapify):
 
 
 # Зчитування вхідного файлу
-file_name = input("Enter input file name: ")
-input_file = open(file_name, "r+")
+# file_name = input("Enter input file name: ")
+input_file = open("input.txt", "r+")
 temp = input_file.readlines()
 input_file.close()
 
