@@ -3,65 +3,90 @@ using System;
 namespace lab8 {
     public class LinkedList {
         private int size;
-        private int[] _list;
+        private Node root;
 
         public LinkedList() {
-            this.size = 1;
-            this._list = new int[size];
+            this.size = 0;
+            this.root = new Node();
         }
 
         public void push(int x) {
-            int[] tmp = new int[++this.size];
-            tmp[1] = x;
+            Node currentNode = root;
 
-            for (int i = 1; i < this.size - 1; i++)
-                tmp[i + 1] = this._list[i];
-            
-            this._list = tmp;
+            while (true) {
+                if (currentNode.Next == null) {
+                    currentNode.Next = new Node(x);
+                    this.size += 1;
+                    break;
+                }
+
+                currentNode = currentNode.Next;
+            }
         }
 
         public void pop() {
-            Array.Resize(ref this._list, --this.size);
+            Node currentNode = root;
+
+            while (true) {
+                if (currentNode.Next.Next == null) {
+                    currentNode.Next = null;
+                    break;
+                }
+
+                currentNode = currentNode.Next;
+            }
         }
 
         public int findAllMultiplesOfFive() {
             int counter = 0;
+            Node currentNode = root.Next;
 
-            for (int i = 1; i < this.size; i++)
-                if (this._list[i] % 5 == 0)
+            while (true) {
+                if (currentNode.Value % 5 == 0) {
                     counter++;
+                }
+                if (currentNode.Next == null) {
+                    break;
+                }
+
+                currentNode = currentNode.Next;
+            }
 
             return counter;
         }
 
-        private int findIndexOfMax() {
-            int max = this._list[0];
-            int index = 0;
+        private Node findMaxNode() {
+            Node currentNode = root;
+            int max = currentNode.Value;
+            Node maxNode = currentNode;
 
             for (int i = 0; i < this.size; i++) {
-                if (max < this._list[i]) {
-                    max = this._list[i];
-                    index = i;
+                if (max < currentNode.Next.Value) {
+                    max = currentNode.Next.Value;
+                    maxNode = currentNode.Next;
                 }
+
+                currentNode = currentNode.Next;
             }
 
-            return index;
+            return maxNode;
         }
 
         public void deleteAllAfterMax() {
-            this.size = this.findIndexOfMax() + 1;
-            int[] tmp = new int[this.size];
-
-            for (int i = 0; i < this.size; i++) {
-                tmp[i] = this._list[i];
-            }
-
-            this._list = tmp;
+            Node maxNode = this.findMaxNode();
+            maxNode.Next = null;
         }
 
         public void printList() {
-            foreach (int item in this._list)
-                Console.Write(item + " ");
+            Node currentNode = root;
+
+            while (true) {
+                Console.Write(currentNode.Value + " ");
+                if (currentNode.Next == null)
+                    break;
+
+                currentNode = currentNode.Next;
+            }
             Console.WriteLine();
         }
     }

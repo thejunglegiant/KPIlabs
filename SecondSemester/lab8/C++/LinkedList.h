@@ -1,18 +1,21 @@
 #ifndef LINKEDLIST_H
 #define LINKEDLIST_H
 
+#include "Node.h"
+
 class LinkedList {
     private:
-        int size;
-        int* _list;
+        Node* root = new Node;
+        Node* findMaxNode();
     public:
         LinkedList();
         void push(int);
         void pop();
         int findAllMultiplesOfFive();
-        int findIndexOfMax();
         void deleteAllAfterMax();
         void printList();
+
+        ~LinkedList();
 };
 
 #endif

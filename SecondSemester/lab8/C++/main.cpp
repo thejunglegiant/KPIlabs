@@ -12,13 +12,14 @@ int main() {
         list.push(rand() % 100);
     
     list.printList();
+    cout << endl;
     cout << "Amount of numbers which are multiples of five: "
         << list.findAllMultiplesOfFive() << endl;
+    cout << endl;
     list.deleteAllAfterMax();
     list.printList();
     list.pop();
     list.printList();
-    
 
     return 0;
 }

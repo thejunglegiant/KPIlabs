@@ -1,67 +1,101 @@
 #include <iostream>
 #include "LinkedList.h"
+#include "Node.h"
+
+using namespace std;
 
 LinkedList::LinkedList() {
-    this->size = 1;
-    this-> _list = new int[this->size];
+    root->value = 0;
+    root->next = nullptr;
 }
 
 void LinkedList::push(int x) {
-    int* tmp = new int[++this->size];
-    tmp[1] = x;
+    Node* currentNode = this->root;
 
-    for (int i = 1; i < this->size - 1; i++)
-        tmp[i + 1] = this->_list[i];
-    
-    this->_list = tmp;
+    while (true) {
+        if (currentNode->next == nullptr) {
+            currentNode->next = new Node(x);
+            break;
+        }
+
+        currentNode = currentNode->next;
+    }
 }
 
 void LinkedList::pop() {
-    int* tmp = new int[--this->size];
+    Node* currentNode = this->root;
 
-    for (int i = 0; i < this->size; i++)
-        tmp[i] = this->_list[i];
-    
-    this->_list = tmp;
+    while (true) {
+        if (currentNode->next->next == nullptr) {
+            Node* n = currentNode->next;
+            currentNode->next = nullptr;
+            delete n;
+            break;
+        }
+
+        currentNode = currentNode->next;
+    }
 }
 
 int LinkedList::findAllMultiplesOfFive() {
     int counter = 0;
+    Node* currentNode = this->root->next;
 
-    for (int i = 1; i < this->size; i++)
-        if (this->_list[i] % 5 == 0)
+    while (true) {
+        if (currentNode == nullptr || currentNode->next == nullptr) {
+            break;
+        }
+        if ((int)currentNode->value % 5 == 0) {
             counter++;
+        }
+
+        currentNode = currentNode->next;
+    }
 
     return counter;
 }
 
-int LinkedList::findIndexOfMax() {
-    int max = this->_list[0];
-    int index = 0;
+Node* LinkedList::findMaxNode() {
+    Node* currentNode = root;
+    Node* maxNode = currentNode;
 
-    for (int i = 0; i < this->size; i++) {
-        if (max < this->_list[i]) {
-            max = this->_list[i];
-            index = i;
+    while (currentNode->next != nullptr) {
+        if (maxNode->value < currentNode->value) {
+            maxNode = currentNode;
         }
+
+        currentNode = currentNode->next;
     }
 
-    return index;
+    return maxNode;
 }
 
 void LinkedList::deleteAllAfterMax() {
-    this->size = this->findIndexOfMax() + 1;
-    int* tmp = new int[this->size];
-
-    for (int i = 0; i < this->size; i++) {
-        tmp[i] = this->_list[i];
+    Node* maxNode = findMaxNode();
+    Node* currentNode = maxNode->next;
+    maxNode->next = nullptr;
+    while (currentNode != nullptr) {
+        Node* n = currentNode;
+        currentNode = currentNode->next;
+        delete n;
     }
-
-    this->_list = tmp;
 }
 
 void LinkedList::printList() {
-    for (int i = 0; i < this->size; i++)
-        std::cout << this->_list[i] << " ";
-    std::cout << std::endl;
+    Node* currentNode = root;
+
+	while (currentNode != nullptr) {
+		cout << currentNode->value << " ";
+		currentNode = currentNode->next;
+	}
+
+	cout << endl;
+}
+
+LinkedList::~LinkedList() {
+    while(root != nullptr) {
+        Node * n = root->next;
+        delete root;
+        root = n;
+    }
 }
