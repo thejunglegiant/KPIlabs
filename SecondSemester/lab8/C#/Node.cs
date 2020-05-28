@@ -1,7 +1,7 @@
 using System;
 
 namespace lab8 {
-    public class Node {
+    internal class Node {
         public int Value { get; set; }
         public Node Next { get; set; }
 

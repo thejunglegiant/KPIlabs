@@ -1,0 +1,92 @@
+{
+  "version": 3,
+  "targets": {
+    ".NETCoreApp,Version=v3.1": {
+      "Tasker/1.0.0": {
+        "type": "project",
+        "framework": ".NETStandard,Version=v2.0",
+        "compile": {
+          "bin/placeholder/Tasker.dll": {}
+        },
+        "runtime": {
+          "bin/placeholder/Tasker.dll": {}
+        }
+      }
+    }
+  },
+  "libraries": {
+    "Tasker/1.0.0": {
+      "type": "project",
+      "path": "../Tasker/Tasker.csproj",
+      "msbuildProject": "../Tasker/Tasker.csproj"
+    }
+  },
+  "projectFileDependencyGroups": {
+    ".NETCoreApp,Version=v3.1": [
+      "Tasker >= 0.1.0"
+    ]
+  },
+  "packageFolders": {
+    "/Users/TheJungleGiant/.nuget/packages/": {}
+  },
+  "project": {
+    "version": "1.0.0",
+    "restore": {
+      "projectUniqueName": "/Users/TheJungleGiant/Documents/Labs/SecondSemester/TermPaper/Main/Main.csproj",
+      "projectName": "Main",
+      "projectPath": "/Users/TheJungleGiant/Documents/Labs/SecondSemester/TermPaper/Main/Main.csproj",
+      "packagesPath": "/Users/TheJungleGiant/.nuget/packages/",
+      "outputPath": "/Users/TheJungleGiant/Documents/Labs/SecondSemester/TermPaper/Main/obj/",
+      "projectStyle": "PackageReference",
+      "configFilePaths": [
+        "/Users/TheJungleGiant/.nuget/NuGet/NuGet.Config"
+      ],
+      "originalTargetFrameworks": [
+        "netcoreapp3.1"
+      ],
+      "sources": {
+        "https://api.nuget.org/v3/index.json": {}
+      },
+      "frameworks": {
+        "netcoreapp3.1": {
+          "projectReferences": {
+            "/Users/TheJungleGiant/Documents/Labs/SecondSemester/TermPaper/Tasker/Tasker.csproj": {
+              "projectPath": "/Users/TheJungleGiant/Documents/Labs/SecondSemester/TermPaper/Tasker/Tasker.csproj"
+            }
+          }
+        }
+      },
+      "warningProperties": {
+        "warnAsError": [
+          "NU1605"
+        ]
+      }
+    },
+    "frameworks": {
+      "netcoreapp3.1": {
+        "dependencies": {
+          "Tasker": {
+            "target": "Package",
+            "version": "[0.1.0, )"
+          }
+        },
+        "imports": [
+          "net461",
+          "net462",
+          "net47",
+          "net471",
+          "net472",
+          "net48"
+        ],
+        "assetTargetFallback": true,
+        "warn": true,
+        "frameworkReferences": {
+          "Microsoft.NETCore.App": {
+            "privateAssets": "all"
+          }
+        },
+        "runtimeIdentifierGraphPath": "/usr/local/share/dotnet/sdk/3.1.101/RuntimeIdentifierGraph.json"
+      }
+    }
+  }
+}
