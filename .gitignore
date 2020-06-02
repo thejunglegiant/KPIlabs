@@ -64,6 +64,9 @@ SecondSemester/*/C#/bin
 SecondSemester/*/C#/obj
 SecondSemester/*/C#/*.csproj
 SecondSemester/*/C++/*.out
+SecondSemester/TermPaper/*/bin
+SecondSemester/TermPaper/*/obj
+SecondSemester/TermPaper/*/*.csproj
 
 DiscreteMath
 AlgorithmsTheory
