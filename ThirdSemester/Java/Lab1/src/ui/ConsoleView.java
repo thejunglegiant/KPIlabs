@@ -4,7 +4,7 @@ import data.database.Show;
 
 import java.util.Calendar;
 
-public class ConsoleView {
+public class ConsoleView implements MainView {
     public static final String INPUT_INT = "Enter menu option - ";
     public static final String WRONG_INPUT_INT = "Wrong option.\nTry again - ";
     public static final String INPUT_ACTOR = "Enter actor's name - ";
@@ -13,15 +13,8 @@ public class ConsoleView {
     public static final String INPUT_MONTH = "Enter month - ";
     public static final String INPUT_YEAR = "Enter year - ";
 
-    public void printMessage(String message){
-        System.out.print(message);
-    }
-
-    public void showArrayInformation(Show show){
-        System.out.println(show.toString());
-    }
-
-    public void printMenu(){
+    @Override
+    public void printMenu() {
         System.out.println();
         System.out.println("Menu");
         System.out.println("1 - All shows");
@@ -30,10 +23,17 @@ public class ConsoleView {
         System.out.println("4 - Exit");
     }
 
-    public void printEmptyResponse(){
+    @Override
+    public void printMessage(String message) {
+        System.out.print(message);
+    }
+
+    @Override
+    public void printEmptyResponse() {
         System.out.println("Unfortunately, nothing found by your query");
     }
 
+    @Override
     public void printAll(Show[] shows) {
         System.out.format("%10s%15s%25s%10s%15s%10s%15s%100s\n",
                 "Name", "Genre", "Theater", "Time", "Date", "Price", "Actors amount", "Main actors");
@@ -48,9 +48,10 @@ public class ConsoleView {
         }
     }
 
-    public void printAllTheaters(String[] theaters) {
+    @Override
+    public void printStrings(String[] strings) {
         System.out.print("Theaters: ");
-        for (String item : theaters) {
+        for (String item : strings) {
             if (item == null) break;
             System.out.print(item + ", ");
         }

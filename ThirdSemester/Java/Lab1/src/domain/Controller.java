@@ -37,7 +37,7 @@ public class Controller {
                     );
 
                     if (caseThree.length > 0) {
-                        view.printAllTheaters(caseThree);
+                        view.printStrings(caseThree);
                     } else {
                         view.printEmptyResponse();
                     }
