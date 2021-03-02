@@ -1,4 +1,5 @@
-import java.util.Arrays;
+package data.database;
+
 import java.util.Calendar;
 import java.util.List;
 
@@ -24,10 +25,12 @@ public class Show {
     @Override
     public String toString() {
         return "\n" + name + ":\n" +
-                "Genre: " + genre + "n" +
+                "Genre: " + genre + "\n" +
                 "Theater: " + theater + "\n" +
                 "Time: " + time + "\n" +
-                "Date: " + date.getTime().toString() + "\n" +
+                "Date: " + date.get(Calendar.DAY_OF_MONTH) + "."
+                    + date.get(Calendar.MONTH) + "."
+                    + date.get(Calendar.YEAR) + "\n" +
                 "Price: " + avgPrice + "\n" +
                 "Actors amount: " + amountOfActors + "\n" +
                 "Main actors: " + mainActors.toString();
