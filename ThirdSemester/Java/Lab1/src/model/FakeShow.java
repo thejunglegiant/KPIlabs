@@ -1,6 +1,6 @@
-package data;
+package model;
 
-import data.database.Show;
+import model.database.Show;
 
 import java.util.ArrayList;
 import java.util.Calendar;

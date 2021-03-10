@@ -1,6 +1,6 @@
 package ui;
 
-import data.database.Show;
+import model.database.Show;
 
 import java.util.Calendar;
 
@@ -12,6 +12,7 @@ public class ConsoleView implements MainView {
     public static final String INPUT_DAY = "Enter day - ";
     public static final String INPUT_MONTH = "Enter month - ";
     public static final String INPUT_YEAR = "Enter year - ";
+    public static final String NOTHING_FOUND = "Unfortunately, nothing found by your query";
 
     @Override
     public void printMenu() {
@@ -26,11 +27,6 @@ public class ConsoleView implements MainView {
     @Override
     public void printMessage(String message) {
         System.out.print(message);
-    }
-
-    @Override
-    public void printEmptyResponse() {
-        System.out.println("Unfortunately, nothing found by your query");
     }
 
     @Override

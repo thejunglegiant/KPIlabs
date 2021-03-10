@@ -1,32 +1,29 @@
-package domain;
+package controller;
 
-import data.ShowModel;
-import data.database.Show;
+import model.ShowModel;
+import model.database.Show;
 import ui.ConsoleView;
 
 public class Controller {
     private final ShowModel model = new ShowModel();
     private final ConsoleView view = new ConsoleView();
     private final UserInterceptor interceptor = new UserInterceptor(view);
-    private int choice;
 
     public void run() {
-        while (choice != 4) {
+        while (true) {
             view.printMenu();
-            choice = interceptor.inputInt(ConsoleView.INPUT_INT);
+            int choice = interceptor.inputInt(ConsoleView.INPUT_INT);
             switch (choice) {
                 case 1:
                     view.printAll(model.getAll());
                     break;
                 case 2:
-                    Show[] caseTwo = model.getShowByActor(
-                            interceptor.inputString(ConsoleView.INPUT_ACTOR)
-                    );
+                    Show[] caseTwo = model.getShowByActor(interceptor.inputString(ConsoleView.INPUT_ACTOR));
 
                     if (caseTwo.length > 0) {
                         view.printAll(caseTwo);
                     } else {
-                        view.printEmptyResponse();
+                        view.printMessage(ConsoleView.NOTHING_FOUND);
                     }
 
                     break;
@@ -39,7 +36,7 @@ public class Controller {
                     if (caseThree.length > 0) {
                         view.printStrings(caseThree);
                     } else {
-                        view.printEmptyResponse();
+                        view.printMessage(ConsoleView.NOTHING_FOUND);
                     }
 
                     break;

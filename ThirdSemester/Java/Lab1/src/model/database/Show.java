@@ -1,4 +1,4 @@
-package data.database;
+package model.database;
 
 import java.util.Calendar;
 import java.util.List;

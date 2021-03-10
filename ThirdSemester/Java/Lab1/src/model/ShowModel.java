@@ -1,7 +1,7 @@
-package data;
+package model;
 
-import data.database.AppDatabase;
-import data.database.Show;
+import model.database.AppDatabase;
+import model.database.Show;
 
 import java.util.Arrays;
 import java.util.Calendar;
@@ -46,5 +46,9 @@ public class ShowModel {
         }
 
         return Arrays.copyOf(result, found);
+    }
+
+    public void deleteItem(int index) {
+        database.delete(database.getAll()[index]);
     }
 }
