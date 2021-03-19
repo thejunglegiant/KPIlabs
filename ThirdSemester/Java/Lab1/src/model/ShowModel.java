@@ -31,16 +31,13 @@ public class ShowModel {
         return Arrays.copyOf(result, found);
     }
 
-    public String[] getTheaterByShowAndDate(String show, Calendar date) {
+    public String[] getTheaterByShowAndDate(String show, String date) {
         Show[] shows = database.getAll();
         String[] result = new String[shows.length];
         int found = 0;
 
         for (Show item : shows) {
-            if (item.getName().equals(show)
-                    && item.getDate().get(Calendar.DAY_OF_MONTH) == date.get(Calendar.DAY_OF_MONTH)
-                    && item.getDate().get(Calendar.MONTH) == date.get(Calendar.MONTH)
-                    && item.getDate().get(Calendar.YEAR) == date.get(Calendar.YEAR)) {
+            if (item.getName().equals(show) && item.getDate().equals(date)) {
                 result[found++] = item.getTheater();
             }
         }

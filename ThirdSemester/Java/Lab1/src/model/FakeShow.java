@@ -3,7 +3,6 @@ package model;
 import model.database.Show;
 
 import java.util.ArrayList;
-import java.util.Calendar;
 import java.util.List;
 import java.util.Random;
 
@@ -23,15 +22,12 @@ public class FakeShow {
             }
         }
 
-        Calendar calendar = Calendar.getInstance();
-        calendar.set(2021, random.nextInt(12), random.nextInt(31));
-
         return new Show(
                 "Show-" + random.nextInt(100),
                 genres[random.nextInt(6)],
                 theaters[random.nextInt(6)],
                 random.nextInt(24) + ":" + random.nextInt(60),
-                calendar,
+                "2021-0" + random.nextInt(10) + "-" + (random.nextInt(21) + 10),
                 random.nextInt(1000),
                 random.nextInt(50),
                 mainActors

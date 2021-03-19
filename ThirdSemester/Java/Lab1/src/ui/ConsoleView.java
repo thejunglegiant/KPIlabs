@@ -2,17 +2,13 @@ package ui;
 
 import model.database.Show;
 
-import java.util.Calendar;
-
 public class ConsoleView implements MainView {
     public static final String INPUT_INT = "Enter menu option - ";
     public static final String WRONG_INPUT_INT = "Wrong option.\nTry again - ";
     public static final String INPUT_ACTOR = "Enter actor's name - ";
     public static final String INPUT_SHOW = "Enter show's name - ";
-    public static final String INPUT_DAY = "Enter day - ";
-    public static final String INPUT_MONTH = "Enter month - ";
-    public static final String INPUT_YEAR = "Enter year - ";
-    public static final String NOTHING_FOUND = "Unfortunately, nothing found by your query";
+    public static final String INPUT_DATE = "Enter date in \"yyyy-mm-dd\" format - ";
+    public static final String NOTHING_FOUND = "Unfortunately, nothing found by your request";
 
     @Override
     public void printMenu() {
@@ -31,25 +27,28 @@ public class ConsoleView implements MainView {
 
     @Override
     public void printAll(Show[] shows) {
-        System.out.format("%10s%15s%25s%10s%15s%10s%15s%100s\n",
-                "Name", "Genre", "Theater", "Time", "Date", "Price", "Actors amount", "Main actors");
-        for (Show item : shows) {
-            if (item == null) break;
-            System.out.format("%10s%15s%25s%10s%15s%10s%5s%100s\n",
-                    item.getName(), item.getGenre(), item.getTheater(), item.getTime(),
-                    item.getDate().get(Calendar.DAY_OF_MONTH) + "."
-                            + item.getDate().get(Calendar.MONTH) + "."
-                            + item.getDate().get(Calendar.YEAR),
-                    item.getAvgPrice(), item.getAmountOfActors(), item.getMainActors());
+        if (shows.length > 0) {
+            System.out.format("%10s%15s%25s%10s%15s%10s%15s%100s\n",
+                    "Name", "Genre", "Theater", "Time", "Date", "Price", "Actors amount", "Main actors");
+            for (Show item : shows) {
+                System.out.format("%10s%15s%25s%10s%15s%10s%5s%100s\n",
+                        item.getName(), item.getGenre(), item.getTheater(), item.getTime(), item.getDate(),
+                        item.getAvgPrice(), item.getAmountOfActors(), item.getMainActors());
+            }
+        } else {
+            System.out.println(NOTHING_FOUND);
         }
     }
 
     @Override
     public void printStrings(String[] strings) {
-        System.out.print("Theaters: ");
-        for (String item : strings) {
-            if (item == null) break;
-            System.out.print(item + ", ");
+        if (strings.length > 0) {
+            System.out.print("Theaters: ");
+            for (String item : strings) {
+                System.out.print(item + ", ");
+            }
+        } else {
+            System.out.println(NOTHING_FOUND);
         }
     }
 }

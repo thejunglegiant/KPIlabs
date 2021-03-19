@@ -1,13 +1,15 @@
 package controller;
 
 import model.ShowModel;
-import model.database.Show;
 import ui.ConsoleView;
+import utils.ErrorInterceptor;
+import utils.errors.WrongDateException;
+import utils.errors.WrongStringException;
 
 public class Controller {
     private final ShowModel model = new ShowModel();
     private final ConsoleView view = new ConsoleView();
-    private final UserInterceptor interceptor = new UserInterceptor(view);
+    private final UserInput interceptor = new UserInput(view);
 
     public void run() {
         while (true) {
@@ -18,25 +20,28 @@ public class Controller {
                     view.printAll(model.getAll());
                     break;
                 case 2:
-                    Show[] caseTwo = model.getShowByActor(interceptor.inputString(ConsoleView.INPUT_ACTOR));
+                    try {
+                        String actor = interceptor.inputString(ConsoleView.INPUT_ACTOR);
 
-                    if (caseTwo.length > 0) {
-                        view.printAll(caseTwo);
-                    } else {
-                        view.printMessage(ConsoleView.NOTHING_FOUND);
+                        ErrorInterceptor.validString(actor);
+
+                        view.printAll(model.getShowByActor(actor));
+                    } catch (WrongStringException e) {
+                        view.printMessage(e.getMessage());
                     }
 
                     break;
                 case 3:
-                    String[] caseThree = model.getTheaterByShowAndDate(
-                            interceptor.inputString(ConsoleView.INPUT_SHOW),
-                            interceptor.inputDate()
-                    );
+                    try {
+                        String show = interceptor.inputString(ConsoleView.INPUT_SHOW);
+                        String date = interceptor.inputString(ConsoleView.INPUT_DATE);
 
-                    if (caseThree.length > 0) {
-                        view.printStrings(caseThree);
-                    } else {
-                        view.printMessage(ConsoleView.NOTHING_FOUND);
+                        ErrorInterceptor.validString(show);
+                        ErrorInterceptor.validDate(date);
+
+                        view.printStrings(model.getTheaterByShowAndDate(show, date));
+                    } catch (WrongStringException | WrongDateException e) {
+                        view.printMessage(e.getMessage());
                     }
 
                     break;
