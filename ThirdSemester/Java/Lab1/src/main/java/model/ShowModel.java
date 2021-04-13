@@ -1,10 +1,10 @@
 package model;
 
-import model.database.AppDatabase;
-import model.database.Show;
+import model.data.AppDatabase;
+import model.data.Show;
+import utils.errors.DbException;
 
 import java.util.Arrays;
-import java.util.Calendar;
 
 public class ShowModel {
     private final AppDatabase database;
@@ -47,5 +47,9 @@ public class ShowModel {
 
     public void deleteItem(int index) {
         database.delete(database.getAll()[index]);
+    }
+
+    public void saveData() throws DbException {
+        database.saveDb();
     }
 }

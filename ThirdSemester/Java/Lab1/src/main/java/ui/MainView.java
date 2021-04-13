@@ -1,6 +1,6 @@
 package ui;
 
-import model.database.Show;
+import model.data.Show;
 
 interface MainView {
     void printMenu();

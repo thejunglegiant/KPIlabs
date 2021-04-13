@@ -1,9 +1,9 @@
-package model.database;
+package model.data;
 
-import java.util.Calendar;
+import java.io.Serializable;
 import java.util.List;
 
-public class Show {
+public class Show implements Serializable {
     private final String name, genre, theater, time, date;
     private final double avgPrice;
     private final int amountOfActors;

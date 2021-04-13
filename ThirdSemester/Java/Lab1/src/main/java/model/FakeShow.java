@@ -1,6 +1,6 @@
 package model;
 
-import model.database.Show;
+import model.data.Show;
 
 import java.util.ArrayList;
 import java.util.List;

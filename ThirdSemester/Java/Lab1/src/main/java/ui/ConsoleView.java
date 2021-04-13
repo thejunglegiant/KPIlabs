@@ -1,14 +1,16 @@
 package ui;
 
-import model.database.Show;
+import model.data.Show;
 
 public class ConsoleView implements MainView {
     public static final String INPUT_INT = "Enter menu option - ";
-    public static final String WRONG_INPUT_INT = "Wrong option.\nTry again - ";
+    public static final String WRONG_INPUT = "Wrong option.\nTry again - ";
     public static final String INPUT_ACTOR = "Enter actor's name - ";
     public static final String INPUT_SHOW = "Enter show's name - ";
     public static final String INPUT_DATE = "Enter date in \"yyyy-mm-dd\" format - ";
-    public static final String NOTHING_FOUND = "Unfortunately, nothing found by your request";
+    public static final String INPUT_FILENAME = "Enter filename: ";
+    public static final String NOTHING_FOUND = "Unfortunately, nothing found by your request.";
+    public static final String ASK_SAVE = "Save result? (Y\\n): ";
 
     @Override
     public void printMenu() {
