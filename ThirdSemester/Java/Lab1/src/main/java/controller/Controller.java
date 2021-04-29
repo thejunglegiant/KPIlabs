@@ -32,17 +32,13 @@ public class Controller {
                         Show[] resultByActor = model.getShowByActor(actor);
                         view.printAll(resultByActor);
                         if (interceptor.inputConfirmation(ConsoleView.ASK_SAVE)) {
-                            try {
-                                FileManager.writeShows(
-                                    interceptor.inputString(ConsoleView.INPUT_FILENAME),
-                                    resultByActor
-                                );
-                            } catch (FileManagerException e) {
-                                view.printMessage(ConsoleView.FAILED_MESSAGE);
-                            }
+                            FileManager.writeShows(
+                                interceptor.inputString(ConsoleView.INPUT_FILENAME),
+                                resultByActor
+                            );
                         }
-                    } catch (WrongStringException e) {
-                        view.printMessage(e.getMessage());
+                    } catch (WrongStringException | FileManagerException e) {
+                        view.printMessage(ConsoleView.FAILED_MESSAGE);
                     }
 
                     break;
@@ -57,16 +53,12 @@ public class Controller {
                         String[] resultByShowAndDate = model.getTheaterByShowAndDate(show, date);
                         view.printStrings(resultByShowAndDate);
                         if (interceptor.inputConfirmation(ConsoleView.ASK_SAVE)) {
-                            try {
-                                FileManager.writeTheaters(
-                                        interceptor.inputString(ConsoleView.INPUT_FILENAME),
-                                        resultByShowAndDate
-                                );
-                            } catch (FileManagerException e) {
-                                view.printMessage(ConsoleView.FAILED_MESSAGE);
-                            }
+                            FileManager.writeTheaters(
+                                    interceptor.inputString(ConsoleView.INPUT_FILENAME),
+                                    resultByShowAndDate
+                            );
                         }
-                    } catch (WrongStringException | WrongDateException e) {
+                    } catch (WrongStringException | WrongDateException | FileManagerException e) {
                         view.printMessage(ConsoleView.FAILED_MESSAGE);
                     }
 
