@@ -38,7 +38,7 @@ public class Controller {
                                     resultByActor
                                 );
                             } catch (FileManagerException e) {
-                                view.printMessage(e.getMessage());
+                                view.printMessage(ConsoleView.FAILED_MESSAGE);
                             }
                         }
                     } catch (WrongStringException e) {
@@ -63,11 +63,11 @@ public class Controller {
                                         resultByShowAndDate
                                 );
                             } catch (FileManagerException e) {
-                                view.printMessage(e.getMessage());
+                                view.printMessage(ConsoleView.FAILED_MESSAGE);
                             }
                         }
                     } catch (WrongStringException | WrongDateException e) {
-                        view.printMessage(e.getMessage());
+                        view.printMessage(ConsoleView.FAILED_MESSAGE);
                     }
 
                     break;
@@ -75,7 +75,7 @@ public class Controller {
                     try {
                         model.saveData();
                     } catch (DbException e) {
-                        view.printMessage(e.getMessage());
+                        view.printMessage(ConsoleView.FAILED_MESSAGE);
                     }
 
                     System.exit(0);

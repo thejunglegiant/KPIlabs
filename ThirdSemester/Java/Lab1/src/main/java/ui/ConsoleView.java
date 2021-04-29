@@ -11,6 +11,7 @@ public class ConsoleView implements MainView {
     public static final String INPUT_FILENAME = "Enter filename: ";
     public static final String NOTHING_FOUND = "Unfortunately, nothing found by your request.";
     public static final String ASK_SAVE = "Save result? (Y\\n): ";
+    public static final String FAILED_MESSAGE = "Something went wrong.";
 
     @Override
     public void printMenu() {
