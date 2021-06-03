@@ -1,12 +1,15 @@
 package model.data;
 
 import model.FakeShow;
+import org.apache.logging.log4j.LogManager;
+import org.apache.logging.log4j.Logger;
 import utils.errors.DbException;
 
 import java.io.*;
 import java.util.Arrays;
 
 public class AppDatabase {
+    private final Logger logger = LogManager.getLogger(AppDatabase.class);
     private static final String dbPath = "src/main/resources/db.dat";
     private static AppDatabase database;
     private Show[] shows;
@@ -23,6 +26,7 @@ public class AppDatabase {
         try {
             useDbBackup();
         } catch (DbException e) {
+            logger.error(e.getMessage());
             init();
         }
     }
